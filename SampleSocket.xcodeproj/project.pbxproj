@@ -13,6 +13,10 @@
 		DB45BEEE2653BE0A009CE555 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB45BEEC2653BE0A009CE555 /* Main.storyboard */; };
 		DB45BEF02653BE0B009CE555 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB45BEEF2653BE0B009CE555 /* Assets.xcassets */; };
 		DB45BEF32653BE0B009CE555 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB45BEF12653BE0B009CE555 /* LaunchScreen.storyboard */; };
+		DB82DEAF2654AC9F0014C4E4 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB82DEAE2654AC9F0014C4E4 /* Client.swift */; };
+		DB897BA326551C92000C7051 /* RightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BA226551C92000C7051 /* RightCell.swift */; };
+		DB897BA526551C99000C7051 /* LeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BA426551C99000C7051 /* LeftCell.swift */; };
+		DB897BAC26553984000C7051 /* ChatCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BAB26553984000C7051 /* ChatCellProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		DB45BEEF2653BE0B009CE555 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB45BEF22653BE0B009CE555 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB45BEF42653BE0B009CE555 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB82DEAE2654AC9F0014C4E4 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		DB897BA226551C92000C7051 /* RightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCell.swift; sourceTree = "<group>"; };
+		DB897BA426551C99000C7051 /* LeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCell.swift; sourceTree = "<group>"; };
+		DB897BAB26553984000C7051 /* ChatCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,51 @@
 		DB45BEE52653BE0A009CE555 /* SampleSocket */ = {
 			isa = PBXGroup;
 			children = (
+				DB897BA926551CEA000C7051 /* StoryBoard */,
+				DB897BA826551CCF000C7051 /* Socket */,
+				DB897BA726551CC2000C7051 /* ViewController */,
+				DB897BA626551CBE000C7051 /* Cell */,
 				DB45BEE62653BE0A009CE555 /* AppDelegate.swift */,
 				DB45BEE82653BE0A009CE555 /* SceneDelegate.swift */,
-				DB45BEEA2653BE0A009CE555 /* ViewController.swift */,
-				DB45BEEC2653BE0A009CE555 /* Main.storyboard */,
 				DB45BEEF2653BE0B009CE555 /* Assets.xcassets */,
 				DB45BEF12653BE0B009CE555 /* LaunchScreen.storyboard */,
 				DB45BEF42653BE0B009CE555 /* Info.plist */,
 			);
 			path = SampleSocket;
+			sourceTree = "<group>";
+		};
+		DB897BA626551CBE000C7051 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DB897BA226551C92000C7051 /* RightCell.swift */,
+				DB897BA426551C99000C7051 /* LeftCell.swift */,
+				DB897BAB26553984000C7051 /* ChatCellProtocol.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		DB897BA726551CC2000C7051 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DB45BEEA2653BE0A009CE555 /* ViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		DB897BA826551CCF000C7051 /* Socket */ = {
+			isa = PBXGroup;
+			children = (
+				DB82DEAE2654AC9F0014C4E4 /* Client.swift */,
+			);
+			name = Socket;
+			sourceTree = "<group>";
+		};
+		DB897BA926551CEA000C7051 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				DB45BEEC2653BE0A009CE555 /* Main.storyboard */,
+			);
+			name = StoryBoard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +183,11 @@
 			files = (
 				DB45BEEB2653BE0A009CE555 /* ViewController.swift in Sources */,
 				DB45BEE72653BE0A009CE555 /* AppDelegate.swift in Sources */,
+				DB897BAC26553984000C7051 /* ChatCellProtocol.swift in Sources */,
+				DB82DEAF2654AC9F0014C4E4 /* Client.swift in Sources */,
+				DB897BA526551C99000C7051 /* LeftCell.swift in Sources */,
 				DB45BEE92653BE0A009CE555 /* SceneDelegate.swift in Sources */,
+				DB897BA326551C92000C7051 /* RightCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
