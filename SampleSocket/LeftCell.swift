@@ -64,7 +64,7 @@ class LeftCell: UITableViewCell, ChatCell {
     }
     
     func setUpText(id: String, text: String) {
-        idLabel.text = "friend"
+        idLabel.text = id
         contextLabel.text = text
         stackView.alignment = .leading
         backView.backgroundColor =  #colorLiteral(red: 0.87, green: 0.54, blue: 0.44, alpha: 1.00)

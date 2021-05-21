@@ -49,6 +49,13 @@
                                     <action selector="touchExitButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="03B-G8-fN7"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Oa-az-283">
+                                <rect key="frame" x="359" y="56" width="47" height="30"/>
+                                <state key="normal" title="Resign"/>
+                                <connections>
+                                    <action selector="touchResignButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mvi-vP-jbZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -59,9 +66,11 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ram-XE-8ah" secondAttribute="bottom" constant="5" identifier="BottomConstraint" id="Qbg-nn-MeQ"/>
                             <constraint firstItem="Ram-XE-8ah" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="TCD-Rv-V2o"/>
                             <constraint firstItem="Ram-XE-8ah" firstAttribute="top" secondItem="1DW-ym-IPB" secondAttribute="bottom" constant="5" id="V7n-co-nLH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7Oa-az-283" secondAttribute="trailing" constant="8" id="eNK-Kj-CbO"/>
                             <constraint firstItem="oUd-Uw-Rdk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="euw-wz-amq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1DW-ym-IPB" secondAttribute="trailing" id="fBy-84-Ghr"/>
                             <constraint firstAttribute="bottom" secondItem="Ram-XE-8ah" secondAttribute="bottom" priority="750" constant="5" identifier="SafeBottomConstraint" id="gfk-yV-8kz"/>
+                            <constraint firstItem="7Oa-az-283" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="rke-xq-ERC"/>
                             <constraint firstItem="1DW-ym-IPB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z6u-o0-Cwd"/>
                         </constraints>
                     </view>

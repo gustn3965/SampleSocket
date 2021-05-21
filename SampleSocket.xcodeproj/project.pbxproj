@@ -17,6 +17,13 @@
 		DB897BA326551C92000C7051 /* RightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BA226551C92000C7051 /* RightCell.swift */; };
 		DB897BA526551C99000C7051 /* LeftCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BA426551C99000C7051 /* LeftCell.swift */; };
 		DB897BAC26553984000C7051 /* ChatCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB897BAB26553984000C7051 /* ChatCellProtocol.swift */; };
+		DB9106C626576245005327ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9106C526576245005327ED /* AppDelegate.swift */; };
+		DB9106C826576245005327ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9106C726576245005327ED /* SceneDelegate.swift */; };
+		DB9106CA26576245005327ED /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9106C926576245005327ED /* ServerViewController.swift */; };
+		DB9106CD26576245005327ED /* ServerMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9106CB26576245005327ED /* ServerMain.storyboard */; };
+		DB9106CF26576246005327ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9106CE26576246005327ED /* Assets.xcassets */; };
+		DB9106D226576246005327ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9106D026576246005327ED /* LaunchScreen.storyboard */; };
+		DB9106D826576257005327ED /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9106D726576257005327ED /* Server.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +39,26 @@
 		DB897BA226551C92000C7051 /* RightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCell.swift; sourceTree = "<group>"; };
 		DB897BA426551C99000C7051 /* LeftCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftCell.swift; sourceTree = "<group>"; };
 		DB897BAB26553984000C7051 /* ChatCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCellProtocol.swift; sourceTree = "<group>"; };
+		DB9106C326576245005327ED /* SampleServer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleServer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB9106C526576245005327ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DB9106C726576245005327ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		DB9106C926576245005327ED /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
+		DB9106CC26576245005327ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ServerMain.storyboard; sourceTree = "<group>"; };
+		DB9106CE26576246005327ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DB9106D126576246005327ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DB9106D326576246005327ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB9106D726576257005327ED /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DB45BEE02653BE0A009CE555 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9106C026576245005327ED /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -49,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DB45BEE52653BE0A009CE555 /* SampleSocket */,
+				DB9106C426576245005327ED /* SampleServer */,
 				DB45BEE42653BE0A009CE555 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				DB45BEE32653BE0A009CE555 /* SampleSocket.app */,
+				DB9106C326576245005327ED /* SampleServer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,7 +89,7 @@
 		DB45BEE52653BE0A009CE555 /* SampleSocket */ = {
 			isa = PBXGroup;
 			children = (
-				DB897BA926551CEA000C7051 /* StoryBoard */,
+				DB897BA926551CEA000C7051 /* Storyboard */,
 				DB897BA826551CCF000C7051 /* Socket */,
 				DB897BA726551CC2000C7051 /* ViewController */,
 				DB897BA626551CBE000C7051 /* Cell */,
@@ -103,12 +128,51 @@
 			name = Socket;
 			sourceTree = "<group>";
 		};
-		DB897BA926551CEA000C7051 /* StoryBoard */ = {
+		DB897BA926551CEA000C7051 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
 				DB45BEEC2653BE0A009CE555 /* Main.storyboard */,
 			);
-			name = StoryBoard;
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		DB9106C426576245005327ED /* SampleServer */ = {
+			isa = PBXGroup;
+			children = (
+				DB9106DC2657A3A9005327ED /* Storyboard */,
+				DB9106E02657A3E9005327ED /* Server */,
+				DB9106DF2657A3D8005327ED /* ViewController */,
+				DB9106C526576245005327ED /* AppDelegate.swift */,
+				DB9106C726576245005327ED /* SceneDelegate.swift */,
+				DB9106CE26576246005327ED /* Assets.xcassets */,
+				DB9106D026576246005327ED /* LaunchScreen.storyboard */,
+				DB9106D326576246005327ED /* Info.plist */,
+			);
+			path = SampleServer;
+			sourceTree = "<group>";
+		};
+		DB9106DC2657A3A9005327ED /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DB9106CB26576245005327ED /* ServerMain.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		DB9106DF2657A3D8005327ED /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DB9106C926576245005327ED /* ServerViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		DB9106E02657A3E9005327ED /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				DB9106D726576257005327ED /* Server.swift */,
+			);
+			name = Server;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -131,6 +195,23 @@
 			productReference = DB45BEE32653BE0A009CE555 /* SampleSocket.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DB9106C226576245005327ED /* SampleServer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB9106D626576246005327ED /* Build configuration list for PBXNativeTarget "SampleServer" */;
+			buildPhases = (
+				DB9106BF26576245005327ED /* Sources */,
+				DB9106C026576245005327ED /* Frameworks */,
+				DB9106C126576245005327ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleServer;
+			productName = SampleServer;
+			productReference = DB9106C326576245005327ED /* SampleServer.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +222,9 @@
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					DB45BEE22653BE0A009CE555 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					DB9106C226576245005327ED = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
@@ -159,6 +243,7 @@
 			projectRoot = "";
 			targets = (
 				DB45BEE22653BE0A009CE555 /* SampleSocket */,
+				DB9106C226576245005327ED /* SampleServer */,
 			);
 		};
 /* End PBXProject section */
@@ -171,6 +256,16 @@
 				DB45BEF32653BE0B009CE555 /* LaunchScreen.storyboard in Resources */,
 				DB45BEF02653BE0B009CE555 /* Assets.xcassets in Resources */,
 				DB45BEEE2653BE0A009CE555 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB9106C126576245005327ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB9106D226576246005327ED /* LaunchScreen.storyboard in Resources */,
+				DB9106CF26576246005327ED /* Assets.xcassets in Resources */,
+				DB9106CD26576245005327ED /* ServerMain.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -191,6 +286,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB9106BF26576245005327ED /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB9106CA26576245005327ED /* ServerViewController.swift in Sources */,
+				DB9106C626576245005327ED /* AppDelegate.swift in Sources */,
+				DB9106D826576257005327ED /* Server.swift in Sources */,
+				DB9106C826576245005327ED /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -206,6 +312,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				DB45BEF22653BE0B009CE555 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		DB9106CB26576245005327ED /* ServerMain.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB9106CC26576245005327ED /* Base */,
+			);
+			name = ServerMain.storyboard;
+			sourceTree = "<group>";
+		};
+		DB9106D026576246005327ED /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DB9106D126576246005327ED /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -367,6 +489,44 @@
 			};
 			name = Release;
 		};
+		DB9106D426576246005327ED /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVLV77R6X7;
+				INFOPLIST_FILE = SampleServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyunsu.park.SampleServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DB9106D526576246005327ED /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVLV77R6X7;
+				INFOPLIST_FILE = SampleServer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyunsu.park.SampleServer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -384,6 +544,15 @@
 			buildConfigurations = (
 				DB45BEF82653BE0B009CE555 /* Debug */,
 				DB45BEF92653BE0B009CE555 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB9106D626576246005327ED /* Build configuration list for PBXNativeTarget "SampleServer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB9106D426576246005327ED /* Debug */,
+				DB9106D526576246005327ED /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

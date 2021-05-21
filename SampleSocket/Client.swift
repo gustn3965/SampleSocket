@@ -10,11 +10,12 @@ import Network
 
 class Client {
 
-    var connection = NWConnection(host: "172.30.1.33", port: 8080, using: .tcp)
-    var queue = DispatchQueue.init(label: "ClientQueue")
+    let connection = NWConnection(host: .ipv4(.any), port: 8088, using: .tcp)
+    let queue = DispatchQueue.init(label: "ClientQueue")
     var randomId: String
     weak var viewController: ViewController!
-    
+
+    // MARK: - Method 
     init(viewController: ViewController, randomId: String ) {
         self.viewController = viewController
         self.randomId = randomId
@@ -50,8 +51,8 @@ class Client {
             if let error = error {
                 print(error)
             }
-            self.receive()
         }))
+        self.receive()
     }
     
     func receive() {
@@ -62,7 +63,7 @@ class Client {
                     .split(separator: "-").map{String($0)}
                 let id = data[0]
                 var text = data[1]
-                
+
                 if text == "end" {
                     text = "-- 🖐 Bye! --"
                     if id == self.randomId {
@@ -71,8 +72,12 @@ class Client {
                         return
                     }
                 }
+
                 self.viewController.data.append((id,text))
                 self.receive()
+            }
+            if error != nil  {
+                print("receive error is ", error! )
             }
         }
     }

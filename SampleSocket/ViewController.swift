@@ -10,23 +10,19 @@ import UIKit
 import Network
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var safeBottomConstraint: NSLayoutConstraint!
-
+    
     var client: Client!
-    let randomId = String(abs("hash".hashValue))
+    let randomId = String(String(abs("hash".hashValue)).prefix(5))
     var data = [(String,String)]() {
         didSet {
-            print(self.data.count)
             DispatchQueue.main.async {
-                if self.data.count > 1  {
-                self.tableView.insertRows(at: [IndexPath(row: self.data.count - 1, section: 0)], with: .none)
-
-                    self.tableView.scrollToRow(at: IndexPath(row: self.data.count-1, section: 0), at: .bottom, animated: true)
-                }
+                self.tableView.reloadData()
+                self.tableView.scrollToRow(at: IndexPath(row: self.data.count-1, section: 0), at: .bottom, animated: true)
             }
         }
     }
@@ -42,14 +38,14 @@ class ViewController: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.dataSource = self
         tableView.allowsSelection = false
-
+        
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(touchedView)))
     }
-
+    
     @objc func touchedView() {
         self.view.endEditing(true)
     }
-
+    
     @IBAction func clickSend() {
         guard let text = textField.text, !text.isEmpty else { return }
         client.send(textField.text!)
@@ -88,11 +84,17 @@ class ViewController: UIViewController {
     @IBAction func touchExitButton() {
         client.exit()
     }
+    
+    @IBAction func touchResignButton() {
+        client.exit()
+        client = nil
+        client = Client(viewController: self, randomId: randomId)
+    }
 }
 
 // MARK: - TableViewDataSource
 extension ViewController: UITableViewDataSource {
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let contexts = data[indexPath.row]
         let identifier: String = contexts.0 == randomId ? "rightCell" : "leftCell"
@@ -100,11 +102,11 @@ extension ViewController: UITableViewDataSource {
         cell.setUpText(id: contexts.0, text: contexts.1)
         return cell
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
