@@ -10,7 +10,7 @@ import Network
 
 class Client {
 
-    let connection = NWConnection(host: .ipv4(.any), port: 8088, using: .tcp)
+    let connection = NWConnection(host: "172.30.1.28", port: 8088, using: .tcp)
     let queue = DispatchQueue.init(label: "ClientQueue")
     var randomId: String
     weak var viewController: ViewController!
@@ -45,8 +45,10 @@ class Client {
     }
     
     func send(_ text: String) {
-        let data = randomId + "-" + text
-        connection.send(content: data.data(using: .utf8),
+//        let data = (randomId + "-" + text).data(using: .utf8)
+        let data = try? JSONEncoder().encode(Messages(messages: [Message(idx: randomId, text: text, date: Date())]))
+        print(data)
+        connection.send(content: data,
                         completion: .contentProcessed({ error in
             if let error = error {
                 print(error)
@@ -59,21 +61,18 @@ class Client {
         connection.receive(minimumIncompleteLength: 1, maximumLength: 300
         ) { content, context, isComplete, error in
             if content != nil {
-                let data = String(data: content!, encoding: .utf8)!
-                    .split(separator: "-").map{String($0)}
-                let id = data[0]
-                var text = data[1]
-
-                if text == "end" {
-                    text = "-- 🖐 Bye! --"
-                    if id == self.randomId {
-                        self.viewController.data.append((id,text))
-                        self.connection.cancel()
-                        return
+                let data = try? JSONDecoder().decode(Messages.self, from: content!)
+                print(data?.messages.count)
+                data?.messages.forEach {
+                    if $0.text == "end" {
+                        if $0.idx == self.randomId {
+                            self.viewController.data.append(($0.idx, "-- 🖐 Bye! --"))
+                            self.connection.cancel()
+                            return
+                        }
                     }
+                    self.viewController.data.append(($0.idx, $0.text))
                 }
-
-                self.viewController.data.append((id,text))
                 self.receive()
             }
             if error != nil  {

@@ -24,6 +24,8 @@
 		DB9106CF26576246005327ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB9106CE26576246005327ED /* Assets.xcassets */; };
 		DB9106D226576246005327ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB9106D026576246005327ED /* LaunchScreen.storyboard */; };
 		DB9106D826576257005327ED /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB9106D726576257005327ED /* Server.swift */; };
+		DBDBD457265A266100070CA4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBD456265A266100070CA4 /* Message.swift */; };
+		DBDBD458265A283600070CA4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDBD456265A266100070CA4 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,7 @@
 		DB9106D126576246005327ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB9106D326576246005327ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB9106D726576257005327ED /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		DBDBD456265A266100070CA4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 		DB45BEE52653BE0A009CE555 /* SampleSocket */ = {
 			isa = PBXGroup;
 			children = (
+				DBDBD455265A265200070CA4 /* Model */,
 				DB897BA926551CEA000C7051 /* Storyboard */,
 				DB897BA826551CCF000C7051 /* Socket */,
 				DB897BA726551CC2000C7051 /* ViewController */,
@@ -173,6 +177,14 @@
 				DB9106D726576257005327ED /* Server.swift */,
 			);
 			name = Server;
+			sourceTree = "<group>";
+		};
+		DBDBD455265A265200070CA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBDBD456265A266100070CA4 /* Message.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +293,7 @@
 				DB897BAC26553984000C7051 /* ChatCellProtocol.swift in Sources */,
 				DB82DEAF2654AC9F0014C4E4 /* Client.swift in Sources */,
 				DB897BA526551C99000C7051 /* LeftCell.swift in Sources */,
+				DBDBD457265A266100070CA4 /* Message.swift in Sources */,
 				DB45BEE92653BE0A009CE555 /* SceneDelegate.swift in Sources */,
 				DB897BA326551C92000C7051 /* RightCell.swift in Sources */,
 			);
@@ -292,6 +305,7 @@
 			files = (
 				DB9106CA26576245005327ED /* ServerViewController.swift in Sources */,
 				DB9106C626576245005327ED /* AppDelegate.swift in Sources */,
+				DBDBD458265A283600070CA4 /* Message.swift in Sources */,
 				DB9106D826576257005327ED /* Server.swift in Sources */,
 				DB9106C826576245005327ED /* SceneDelegate.swift in Sources */,
 			);

@@ -9,6 +9,7 @@ import Foundation
 import Network
 import Combine
 
+
 class Server {
     
     var listener: NWListener
@@ -38,13 +39,14 @@ class Server {
             func receive() {
                 newConnection.receive(minimumIncompleteLength: 1, maximumLength: 300
                 )  { content, context, isComplete, error in
-                    if let data = content {
-                        let data = String(data: data, encoding: .utf8)!
-                            .split(separator: "-").map{String($0)}
-                        let id = data[0]
-                        let text = data[1]
-                        self.sendToPublisher(with: id+" : "+text)
-                        self.send(message: content!)
+                    if let content = content {
+                        
+                        let data = try? JSONDecoder().decode([Message], from: content)
+//                        print(try? JSONDecoder().decode(Message.self, from: content))
+                        data?.messages.forEach {
+                            self.sendToPublisher(with: $0.idx+" : "+$0.text)
+                            self.send(message: content)
+                        }
                     }
                     if error == nil {
                         receive()
