@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Messages: Codable {
-    var messages: [Message]
-}
-
 struct Message: Codable {
     var idx: String
     var text: String

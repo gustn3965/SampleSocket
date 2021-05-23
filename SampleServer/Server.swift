@@ -40,13 +40,11 @@ class Server {
                 newConnection.receive(minimumIncompleteLength: 1, maximumLength: 300
                 )  { content, context, isComplete, error in
                     if let content = content {
-                        
-                        let data = try? JSONDecoder().decode([Message], from: content)
-//                        print(try? JSONDecoder().decode(Message.self, from: content))
-                        data?.messages.forEach {
-                            self.sendToPublisher(with: $0.idx+" : "+$0.text)
-                            self.send(message: content)
+                        let message = try? JSONDecoder().decode(Message.self, from: content)
+                        if let message = message {
+                            self.sendToPublisher(with: message.idx+" : "+message.text)
                         }
+                        self.send(message: content)
                     }
                     if error == nil {
                         receive()
