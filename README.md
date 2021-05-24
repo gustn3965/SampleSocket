@@ -7,7 +7,7 @@ This is simple example for using light tcp-socket 2-way communication.
 - Client -  using NWConnection
 - Server - using NWListener
 
-![chat](source/socket2.gif)
+![chat](source/socket3.gif)
 
 # How? 
 

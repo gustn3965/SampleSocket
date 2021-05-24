@@ -10,7 +10,7 @@ import Network
 
 class Client {
     
-    let connection = NWConnection(host: "172.30.1.28", port: 8088, using: .tcp)
+    let connection = NWConnection(host: "172.30.1.15", port: 8088, using: .tcp)
     let queue = DispatchQueue.init(label: "ClientQueue")
     var randomId: String
     weak var viewController: ViewController!

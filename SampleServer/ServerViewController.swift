@@ -10,22 +10,26 @@ import Combine
 class ServerViewController: UIViewController {
     
     @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var count: UILabel!
     
     var textCancellable: AnyCancellable?
     var texts: String = ""
     var server: Server?
-
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         server = Server()
         textCancellable = server?.publisher
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { (text) in
-                self.textView.text.append("\n"+text)
+            .sink(receiveValue: { (text, count) in
+                if let text = text {
+                    self.textView.text.append("\n"+text)
+                }
+                self.count.text = "count: \(count)"
                 self.scrollDown()
             })
     }
-    
+
     func scrollDown() {
         let contentHeight = self.textView.contentSize.height
         let height = self.textView.bounds.height

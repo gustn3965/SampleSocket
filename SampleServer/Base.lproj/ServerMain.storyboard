@@ -25,8 +25,14 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="count :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cP-hQ-gbb">
+                                        <rect key="frame" x="0.0" y="57.5" width="394" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kUQ-rv-jNI">
-                                        <rect key="frame" x="0.0" y="57.5" width="394" height="720.5"/>
+                                        <rect key="frame" x="0.0" y="114" width="394" height="664"/>
                                         <color key="backgroundColor" systemColor="systemGray2Color"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -45,6 +51,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="count" destination="4cP-hQ-gbb" id="1py-3C-6dK"/>
                         <outlet property="textView" destination="kUQ-rv-jNI" id="Gnn-tX-yRh"/>
                     </connections>
                 </viewController>
