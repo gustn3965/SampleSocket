@@ -20,7 +20,6 @@ class Server {
     // MARK: - Method
     init() {
         listener = try! NWListener(using: .tcp, on: 8088)
-
         listener.stateUpdateHandler = { state in
             switch state {
             case .ready: print("ready")
@@ -32,7 +31,7 @@ class Server {
         }
         
         listener.newConnectionHandler = { [weak self] newConnection in
-            print("new! ")
+            print("new!")
             guard let self = self else { return }
             newConnection.start(queue: self.serverQueue)
             let uuid = UUID()
@@ -56,11 +55,7 @@ class Server {
     }
 
     deinit {
-        connectionClients.values.forEach{ $0.cancel()}
-        connectionClients.removeAll()
-        listener.newConnectionHandler = nil
-        listener.cancel()
-        listener = nil
+        exit()
         print("server dead")
     }
 
@@ -101,5 +96,10 @@ class Server {
         connectionClients.removeValue(forKey: uuid)
         clientsBuffer.removeValue(forKey: uuid)
         sendToPublisher(with: nil)
+    }
+    
+    func exit() {
+        connectionClients.values.forEach{ $0.cancel()}
+        listener.cancel()
     }
 }

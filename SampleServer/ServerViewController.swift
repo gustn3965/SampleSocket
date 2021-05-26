@@ -21,7 +21,8 @@ class ServerViewController: UIViewController {
         server = Server()
         textCancellable = server?.publisher
             .receive(on: RunLoop.main)
-            .sink(receiveValue: { (text, count) in
+            .sink(receiveValue: { [weak self] (text, count) in
+                guard let self = self else { return }
                 if let text = text {
                     self.textView.text.append("\n"+text)
                 }
@@ -34,6 +35,16 @@ class ServerViewController: UIViewController {
         let contentHeight = self.textView.contentSize.height
         let height = self.textView.bounds.height
         self.textView.scrollRectToVisible(CGRect(x: 0, y: contentHeight - height , width: self.textView.bounds.width, height: height), animated: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        server?.exit()
+        server = nil
+    }
+    
+    deinit {
+        print("ServerViewCon dead ")
     }
 }
 

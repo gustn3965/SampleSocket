@@ -10,7 +10,7 @@ import Network
 
 class Client {
     
-    let connection = NWConnection(host: "172.30.1.15", port: 8088, using: .tcp)
+    let connection = NWConnection(host: "172.30.1.3", port: 8088, using: .tcp)
     let queue = DispatchQueue.init(label: "ClientQueue")
     var randomId: String
     weak var viewController: ViewController!
@@ -21,7 +21,8 @@ class Client {
     init(viewController: ViewController, randomId: String ) {
         self.viewController = viewController
         self.randomId = randomId
-        connection.stateUpdateHandler = { newState in
+        connection.stateUpdateHandler = {[weak self] newState in
+            guard let self = self else { return }
             switch newState {
             case .ready:
                 print("I'm ready")
@@ -46,6 +47,10 @@ class Client {
         connection.start(queue: queue)
     }
     
+    deinit {
+        print("client dead" )
+    }
+
     func send(_ text: String) {
         let data = try? JSONEncoder().encode(Message(idx: randomId, text: text, date: Date()))
         connection.send(content: data,

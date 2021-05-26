@@ -50,6 +50,7 @@
                             <constraint firstItem="aOJ-HD-Izx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="mtM-CZ-5EY"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="3JX-BU-sgj"/>
                     <connections>
                         <outlet property="count" destination="4cP-hQ-gbb" id="1py-3C-6dK"/>
                         <outlet property="textView" destination="kUQ-rv-jNI" id="Gnn-tX-yRh"/>

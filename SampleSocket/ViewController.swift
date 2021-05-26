@@ -83,10 +83,13 @@ class ViewController: UIViewController {
     
     @IBAction func touchExitButton() {
         client.exit()
+        client = nil
     }
     
     @IBAction func touchResignButton() {
-        client.exit()
+        if let client = client {
+            client.exit()
+        }
         client = nil
         client = Client(viewController: self, randomId: randomId)
     }
